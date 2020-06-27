@@ -6,8 +6,8 @@ public class TestBase
 {
     static IWebDriver driver;
     static WebDriverManager driverManager;
-    static string ApplicationUrl = ConfigurationManager.AppSettings["ApplicationUrl"];
-    static string browser = ConfigurationManager.AppSettings["browser"];
+    static string ApplicationUrl = ConfigurationManager.AppSettings.Get("ApplicationUrl");
+    static string browser = ConfigurationManager.AppSettings.Get("browser");
     public static IWebDriver Init()
     {
         driverManager = WebDriverFactory.GetDriverManager(browser);

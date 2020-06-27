@@ -5,6 +5,10 @@ using System.Text;
 
 namespace MidTransTests.DriverClasses
 {
+    /// <summary>
+    /// Abstract WebDriveManager class to define a contract for the brower specific WebDriver classes
+    /// Contains CreateWebDriver and QuitWebDriver Methods
+    /// </summary>
     public abstract class WebDriverManager
     {
         protected IWebDriver driver;
