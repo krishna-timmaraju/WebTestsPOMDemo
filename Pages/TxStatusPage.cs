@@ -14,18 +14,26 @@ namespace MidTransTests.Pages
         public TxStatusPage(IWebDriver _driver)
         {
             this._driver = _driver;
+            _driver.SwitchTo().ParentFrame();
         }
-
-        //Elements
-        private By TxStatus = By.XPath("//div[contains(@class,'text')]");
 
         // Method to get the transaction status message
         public string GetTxStatusMessage()
         {
             //Explicit Wait for the Transaction Message to appear on the page
             WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(5));
-            var txstatus = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(TxStatus));
+            var txstatus = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("//div[contains(@class,'text-success')//span]")));
             var status =  txstatus.Text;
+            return status;
+        }
+
+        // Method to get the Failed transaction status message
+        public string GetFailedTxStatusMessage()
+        {
+            //Explicit Wait for the Transaction Message to appear on the page
+            WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(5));
+            var txstatus = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("//div[contains(@class,'text-failed')//span]")));
+            var status = txstatus.Text;
             return status;
         }
     }

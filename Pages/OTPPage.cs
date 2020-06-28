@@ -30,13 +30,21 @@ namespace MidTransTests.Pages
             //_driver.SwitchTo().DefaultContent();
             // Switch to the OTP iFrame
             WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(10));
-            IWebElement iframe = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.XPath("//iframe[contains(@src,'veritrans')]")));
-            _driver.SwitchTo().Frame(iframe);
+            IWebElement otpiframe = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementExists(By.XPath("//iframe[contains(@src,'veritrans')]")));
+            try
+            {
+                _driver.SwitchTo().Frame(otpiframe);
+            }
+            catch(WebDriverException)
+            {
+                var otpframe = _driver.FindElement(By.XPath("//iframe[contains(@src,'veritrans')]"));
+                _driver.SwitchTo().Frame(otpframe);
+            }
 
             By OTPPasswordField = By.XPath("//input[contains(@name,'PaRes')]");
             //Explicit Wait for the OTP password field to be clickable - NOT using Thread.Sleep
-            wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(3));
-            var otpfield = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(OTPPasswordField));         
+            WebDriverWait bwait = new WebDriverWait(_driver, TimeSpan.FromSeconds(10));
+            var otpfield = bwait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(OTPPasswordField));         
             otpfield.Click();
             otpfield.SendKeys(otp);
         }
