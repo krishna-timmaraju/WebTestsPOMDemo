@@ -26,7 +26,7 @@ namespace MidTransTests.Pages
         private By CardNumberTextBox = By.XPath("//*[contains(@name,'cardnumber')]");
         private By CardExpiryDate = By.XPath("//*[contains(@placeholder,'MM / YY')]");
         private By CardCVV = By.XPath("//*[contains(@placeholder,'123')]");
-        private By ContinueButton = By.XPath("//*[contains(@class,'text-button-main')]");
+        private By ContinueButton = By.XPath("//a[contains(@class,'button-main-content')]");
 
         // Method Enter the Credit Card Details
         // Takes 3 parameters need to be passed after reading the values from config file

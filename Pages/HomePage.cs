@@ -15,6 +15,7 @@ namespace MidTransTests.Pages
         //Elements
         private By BuyNowButton = By.XPath("//a[contains(@class,'buy')]");
         private By ProductTitle = By.XPath("//div[contains(@class,'title')]");
+        private By TransStatus = By.XPath("//div[contains(@class,'trans-status')]");
 
         //Click on Buy Now button
         public void ClickBuyNow()
@@ -38,7 +39,12 @@ namespace MidTransTests.Pages
         // WebDriver has to switch to Default Content from the iframe as the message should be displayed on the home page
         public string GetTransMessage()
         {
-            return "";
+            //switching to default content, as the iframe is detached
+            _driver.SwitchTo().DefaultContent();
+
+            WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(5));
+            var transstatus = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(TransStatus));
+            return transstatus.Text;
         }
     }
 }

@@ -60,7 +60,17 @@ namespace MidTransTests.Tests
 
             //getting the instance of the Bank OTP page
             var otppage = new OTPPage(_driver);
+            otppage.EnterOTP(bankotp);
+            otppage.ClickOkButton();
 
+            //getting the instance of the transaction status page
+            var txpage = new TxStatusPage(_driver);
+            var statusmsg = txpage.GetTxStatusMessage();
+            //Assert in transaction page
+            Assert.IsTrue(statusmsg.ToLower().Trim().Contains("success"));
+            //Assert in Home Page
+            var homemsg = homepage.GetTransMessage();
+            Assert.IsTrue(homemsg.ToLower().Trim().Contains("thank"));
         }
 
     }
