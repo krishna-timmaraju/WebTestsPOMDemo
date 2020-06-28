@@ -1,9 +1,6 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Text;
 
 namespace MidTransTests.Pages
 {
@@ -27,7 +24,6 @@ namespace MidTransTests.Pages
         // OTP value to be passed as a parameter from the Test Method
         public void EnterOTP(string otp)
         {
-            //_driver.SwitchTo().DefaultContent();
             // Switch to the OTP iFrame
             WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(10));
             IWebElement otpiframe = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementExists(By.XPath("//iframe[contains(@src,'veritrans')]")));
@@ -35,8 +31,10 @@ namespace MidTransTests.Pages
             {
                 _driver.SwitchTo().Frame(otpiframe);
             }
-            catch(WebDriverException)
+            //catching generic exception for now
+            catch(Exception)
             {
+                _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
                 var otpframe = _driver.FindElement(By.XPath("//iframe[contains(@src,'veritrans')]"));
                 _driver.SwitchTo().Frame(otpframe);
             }

@@ -14,6 +14,8 @@ namespace MidTransTests.Pages
         public TxStatusPage(IWebDriver _driver)
         {
             this._driver = _driver;
+            // Implict wait - Need to work on Explicit Wait
+            _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
             _driver.SwitchTo().ParentFrame();
         }
 
@@ -31,8 +33,8 @@ namespace MidTransTests.Pages
         public string GetFailedTxStatusMessage()
         {
             //Explicit Wait for the Transaction Message to appear on the page
-            WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(5));
-            var txstatus = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("//div[contains(@class,'text-failed')//span]")));
+            WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(10));
+            var txstatus = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("//div[contains(@class,'bold')]//span")));
             var status = txstatus.Text;
             return status;
         }

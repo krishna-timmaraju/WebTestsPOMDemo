@@ -1,9 +1,8 @@
 ﻿{
-
   "browser": "chrome",
   "ApplicationUrl" :"https://demo.midtrans.com/",
   "SuccessCardNumber" :"4811111111111114",
-  "FailedCardNumber" :"4811111111111113",  
+  "FailedCardNumber" :"4911111111111113",  
   "ExpiryDate" :"02/21",
   "CVV" :"123",
   "BankOTP" :"112233"
