@@ -14,17 +14,13 @@ namespace MidTransTests.Pages
         {
             this._driver = _driver;
             //switch to order summary iframe
-            IWebElement iframe = _driver.FindElement(OrderSummaryFrame);
-            _driver.SwitchTo().Frame(iframe);
+            //IWebElement iframe = _driver.FindElement(OrderSummaryFrame);
+            //_driver.SwitchTo().Frame(iframe);
         }
 
-
-        //Element identifier strings 
-        private const string OrderSummaryIFrameId = "snap-midtrans";
-
         //Elements
-        private By OrderSummaryFrame = By.Id(OrderSummaryIFrameId);
-        private By CreditCardLink = By.XPath("//a[contains(@href, 'credit-card')]");
+        private By OrderSummaryFrame = By.Id("snap-midtrans");
+        private By CreditCardLink = By.XPath("//a[contains(@href,'credit-card')]");
 
         //Click on Credit Card button
         public void ClickCreditCard()

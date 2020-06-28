@@ -16,25 +16,32 @@ namespace MidTransTests.Pages
         {
             this._driver = _driver;
             //switch to order summary iframe
-            IWebElement iframe = _driver.FindElement(OrderSummaryFrame);
+            WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(5));
+            var iframe = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(OrderSummaryFrame));
+
             _driver.SwitchTo().Frame(iframe);
         }
 
-        //Element identifier strings 
-        private const string OrderSummaryIFrameId = "snap-midtrans";
-        private const string ContinueButtonClassName = "button-main-content";
-
         //Elements
-        private By OrderSummaryFrame = By.Id(OrderSummaryIFrameId);
-        private By ContinueButton = By.ClassName(ContinueButtonClassName);
+        private By OrderSummaryFrame = By.Id("snap-midtrans");
+        private By ContinueButton = By.ClassName("button-main-content");
+        private By ProductName = By.XPath("//span[contains(@class,'item-name')]");
 
         //Clicking on Continue Button
         public void ClickContinueButton()
         {
             //Explicit Wait for the Continue button to be clickable - NOT using Thread.Sleep
-            WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(5));
+            WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(3));
             var continuebutton = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(ContinueButton));
             continuebutton.Click();
+        }
+
+        // Get the name of the product in the summary page
+        public string GetProductName()
+        {
+            WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(5));
+            var element = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(ProductName));
+            return element.Text;
         }
     }
 }

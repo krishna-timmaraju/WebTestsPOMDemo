@@ -7,18 +7,18 @@ using System.Text;
 
 namespace MidTransTests.Pages
 {
-    public class OTPPage
+    public class OTPPage : TestBase
     {
         /// <summary>
-        /// Page Object for the Bank OTP view
+        /// Page Object for the Bank OTP page
         /// </summary>
         IWebDriver _driver;
         public OTPPage(IWebDriver _driver)
         {
             this._driver = _driver;
             //switch to order summary iframe
-            IWebElement iframe = _driver.FindElement(OrderSummaryFrame);
-            _driver.SwitchTo().Frame(iframe);
+            //IWebElement iframe = _driver.FindElement(OrderSummaryFrame);
+            //_driver.SwitchTo().Frame(iframe);
         }
 
         //Element identifier strings 
@@ -29,9 +29,6 @@ namespace MidTransTests.Pages
         private By OTPPasswordField = By.Id("PaRes");
         private By OTPOkButton = By.XPath("//button [contains(@class,'btn-success')]");
 
-        //Reading the OTP value from App.Config file
-        string BankOTP = ConfigurationManager.AppSettings.Get("BankOTP");
-
         //Enter the Bank OTP number in the password field
         public void EnterOTP()
         {
@@ -39,11 +36,9 @@ namespace MidTransTests.Pages
             WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(3));
             var otp = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(OTPPasswordField));
             var otpokbutton = _driver.FindElement(OTPOkButton);
-
             otp.Click();
-            otp.SendKeys(BankOTP);
+            otp.SendKeys(bankotp);
             otpokbutton.Click();
-
         }
     }
 }

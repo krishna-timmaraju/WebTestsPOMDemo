@@ -12,13 +12,9 @@ namespace MidTransTests.Pages
             this._driver = _driver;
         }
 
-        //Element identifier strings in the Home Page
-        private const string BuyNowButtonClass = "btn buy";
-        private const string ProductTitleClass = "title";
-
         //Elements
-        private By BuyNowButton = By.ClassName(BuyNowButtonClass);
-        private By ProductTitle = By.ClassName(ProductTitleClass);
+        private By BuyNowButton = By.XPath("//a[contains(@class,'buy')]");
+        private By ProductTitle = By.XPath("//div[contains(@class,'title')]");
 
         //Click on Buy Now button
         public void ClickBuyNow()
@@ -30,6 +26,19 @@ namespace MidTransTests.Pages
         }
 
         //Get the Value of the Product Title
+        public string GetProductTitle()
+        {
+            //Explicit Wait for the Product Title to be visible - NOT using Thread.Sleep
+            WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(5));
+            var productname = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(ProductTitle));
+            return (productname.Text);
+        }
 
+        // Get the transaction message from the home page
+        // WebDriver has to switch to Default Content from the iframe as the message should be displayed on the home page
+        public string GetTransMessage()
+        {
+            return "";
+        }
     }
 }

@@ -17,30 +17,23 @@ namespace MidTransTests.Pages
         {
             this._driver = _driver;
             //switch to order summary iframe
-            IWebElement iframe = _driver.FindElement(OrderSummaryFrame);
-            _driver.SwitchTo().Frame(iframe);
+            //IWebElement iframe = _driver.FindElement(OrderSummaryFrame);
+            //_driver.SwitchTo().Frame(iframe);
         }
 
-        //Element identifier strings 
-        private const string OrderSummaryIFrameId = "snap-midtrans";
-
         //Elements
-        private By OrderSummaryFrame = By.Id(OrderSummaryIFrameId);
+        private By OrderSummaryFrame = By.Id("snap-midtrans");
         private By CardNumberTextBox = By.XPath("//*[contains(@name,'cardnumber')]");
         private By CardExpiryDate = By.XPath("//*[contains(@placeholder,'MM / YY')]");
         private By CardCVV = By.XPath("//*[contains(@placeholder,'123')]");
         private By ContinueButton = By.XPath("//*[contains(@class,'text-button-main')]");
 
-        //Reading the Card Details from App.Config file
-        string CardNumber = ConfigurationManager.AppSettings.Get("SuccessCardNumber");
-        string CardExpiry = ConfigurationManager.AppSettings.Get("ExpiryDate");
-        string CardCVVNumber = ConfigurationManager.AppSettings.Get("CVV");
-
-        //Enter the Credit Card Details
-        public void EnterCardDetails()
+        // Method Enter the Credit Card Details
+        // Takes 3 parameters need to be passed after reading the values from config file
+        public void EnterCardDetails(string CardNumber, string CardExpiry, string CardCVVNumber)
         {
             //Explicit Wait for the Card Number field to be clickable - NOT using Thread.Sleep
-            WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(3));
+            WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(4));
             var ccnumber = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(CardNumberTextBox));
             //Get the Expiry Date and CVV fields
             var ccexpiry = _driver.FindElement(CardExpiryDate);

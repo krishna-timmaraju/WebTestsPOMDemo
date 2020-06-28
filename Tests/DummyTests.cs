@@ -21,6 +21,7 @@ namespace MidTransTests.Tests
         }
 
         [Test]
+        [Ignore("Sample Test to verify framework changes")]
         public void DummyTest()
         {
             NavigateToHome();
