@@ -25,7 +25,7 @@ namespace MidTransTests.Pages
         //Click on Credit Card button
         public void ClickCreditCard()
         {
-            //Explicit Wait for the Continue button to be clickable - NOT using Thread.Sleep
+            //Explicit Wait for the Continue button to be clickable 
             WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(5));
             var ccbutton = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(CreditCardLink));
             ccbutton.Click();

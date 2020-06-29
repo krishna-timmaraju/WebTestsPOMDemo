@@ -34,15 +34,16 @@ namespace MidTransTests.Pages
             //catching generic exception for now
             catch(Exception)
             {
-                _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+                _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
                 var otpframe = _driver.FindElement(By.XPath("//iframe[contains(@src,'veritrans')]"));
                 _driver.SwitchTo().Frame(otpframe);
             }
 
-            By OTPPasswordField = By.XPath("//input[contains(@name,'PaRes')]");
-            //Explicit Wait for the OTP password field to be clickable - NOT using Thread.Sleep
+            _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+            //By OTPPasswordField = By.XPath("//input[contains(@name,'PaRes')]");
+            //Explicit Wait for the OTP password field to be clickable 
             WebDriverWait bwait = new WebDriverWait(_driver, TimeSpan.FromSeconds(10));
-            var otpfield = bwait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(OTPPasswordField));         
+            var otpfield = bwait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.XPath("//input[contains(@name,'PaRes')]")));         
             otpfield.Click();
             otpfield.SendKeys(otp);
         }

@@ -30,7 +30,7 @@ namespace MidTransTests.Pages
         //Clicking on Continue Button
         public void ClickContinueButton()
         {
-            //Explicit Wait for the Continue button to be clickable - NOT using Thread.Sleep
+            //Explicit Wait for the Continue button to be clickable 
             WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(3));
             var continuebutton = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(ContinueButton));
             continuebutton.Click();

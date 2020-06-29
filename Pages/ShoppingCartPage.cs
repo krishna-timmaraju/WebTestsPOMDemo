@@ -28,7 +28,7 @@ namespace MidTransTests.Pages
         //Get the Value of the quantity label
         public string GetQuantityValue()
         {
-            //Explicit Wait for the BuyNow button to be clickable - NOT using Thread.Sleep
+            //Explicit Wait for the BuyNow button to be clickable 
             WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(3));
             var buynow = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(QuantityLabel));
             return buynow.Text;
@@ -37,7 +37,7 @@ namespace MidTransTests.Pages
         //Click on Checkout
         public void ClickCheckout()
         {
-            //Explicit Wait for the BuyNow button to be clickable - NOT using Thread.Sleep
+            //Explicit Wait for the BuyNow button to be clickable 
             WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(5));
             var checkout = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(CheckOutButton));
             checkout.Click();

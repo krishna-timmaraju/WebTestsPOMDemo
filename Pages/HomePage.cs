@@ -19,7 +19,7 @@ namespace MidTransTests.Pages
         //Click on Buy Now button
         public void ClickBuyNow()
         {
-            //Explicit Wait for the BuyNow button to be clickable - NOT using Thread.Sleep
+            //Explicit Wait for the BuyNow button to be clickable 
             WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(5));
             var buynow = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(BuyNowButton));
             buynow.Click();
@@ -28,7 +28,7 @@ namespace MidTransTests.Pages
         //Get the Value of the Product Title
         public string GetProductTitle()
         {
-            //Explicit Wait for the Product Title to be visible - NOT using Thread.Sleep
+            //Explicit Wait for the Product Title to be visible 
             WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(5));
             var productname = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(ProductTitle));
             return (productname.Text);

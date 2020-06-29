@@ -32,7 +32,7 @@ namespace MidTransTests.Pages
         // Takes 3 parameters need to be passed after reading the values from config file
         public void EnterCardDetails(string CardNumber, string CardExpiry, string CardCVVNumber)
         {
-            //Explicit Wait for the Card Number field to be clickable - NOT using Thread.Sleep
+            //Explicit Wait for the Card Number field to be clickable 
             WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(4));
             var ccnumber = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(CardNumberTextBox));
             //Get the Expiry Date and CVV fields
