@@ -20,8 +20,21 @@ The framework contains two test scripts namely VerifyPurchasePillow and VerifyFa
  - Selenium framework for web tests
  - NUnit framework for test development
 
-##### Pre-requisites and Environment
+##### Source Code of the Tests
+ - Code can be navigated using Visual Stuido Code IDE (free download for both Windows and Linux systems)
+ - Download Visual Studio Code : https://code.visualstudio.com/download
+ - Unzip the Test-Source.zip on a Windows machine
+##### Running the Tests
+ - install .NET Core from here - https://dotnet.microsoft.com/download/dotnet-core/current/runtime
+ - Unzip the Windows-Test-Binaries.zip to a folder in the machine
+ - Change Directory to the above folder and run the following command for Successful Payment Test:(Check if MidTransTests.dll is present)
+    > dotnet test MidTransTests.dll --filter Name=VerifyPurchasePillow
+ - Change Directory to the above folder and run the following command for Failed Payment Test:(Check if MidTransTests.dll is present)
+    > dotnet test MidTransTests.dll --filter Name=VerifyFailedPurchasePillow
+ - By default, the browser is set to chrome
 
-##### To-Do
+##### To-Do Areas
+ - **Custom Reporting** - could not implement due to time constraints as of today (29/6/2020). But. I have some ideas to extend a framework (ExtentReports) and present the results in HTML format.
 
-#### Potential Improvements
+##### More fine-grain Improvement Areas
+ - Observed during my test development and test runs, the iframe displayed during the Bank OTP screen is flaky - sometimes getting iframe not present error
