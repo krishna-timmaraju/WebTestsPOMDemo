@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
 
-namespace MidTransTests.Tests
+namespace WebTestsPOMDemo.Tests
 {
     [TestFixture]
     public class DummyTests : TestBase

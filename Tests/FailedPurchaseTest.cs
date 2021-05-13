@@ -1,9 +1,9 @@
 ﻿
-using MidTransTests.Pages;
+using WebTestsPOMDemo.Pages;
 using NUnit.Framework;
 using OpenQA.Selenium;
 
-namespace MidTransTests.Tests
+namespace WebTestsPOMDemo.Tests
 {
     [TestFixture]
     public class FailedPurchaseTest : TestBase
@@ -23,7 +23,7 @@ namespace MidTransTests.Tests
         }
 
         [Test]
-        public void VerifyFailedPurchasePillow()
+        public void VerifyFailedPurchaseFlow()
         {
             //Getting the instance of the landing Home Page
             var homepage = new HomePage(_driver);

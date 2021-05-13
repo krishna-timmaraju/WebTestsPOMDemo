@@ -1,7 +1,7 @@
 ﻿using OpenQA.Selenium.Firefox;
 
 
-namespace MidTransTests.DriverClasses
+namespace WebTestsPOMDemo.DriverClasses
 {
     public class FirefoxDriverManager : WebDriverManager
     {

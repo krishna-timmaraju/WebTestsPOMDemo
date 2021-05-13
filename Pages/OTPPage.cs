@@ -2,7 +2,7 @@
 using OpenQA.Selenium.Support.UI;
 using System;
 
-namespace MidTransTests.Pages
+namespace WebTestsPOMDemo.Pages
 {
     public class OTPPage
     {

@@ -1,8 +1,8 @@
-﻿using MidTransTests.Pages;
+﻿using WebTestsPOMDemo.Pages;
 using NUnit.Framework;
 using OpenQA.Selenium;
 
-namespace MidTransTests.Tests
+namespace WebTestsPOMDemo.Tests
 {
     /// <summary>
     /// Test Class with Test Method to verify the succesful purchase of the Pillow
@@ -25,7 +25,7 @@ namespace MidTransTests.Tests
         }
 
         [Test]
-        public void VerifyPurchasePillow()
+        public void VerifyPurchaseFlow()
         {
             //Getting the instance of the landing Home Page
             var homepage = new HomePage(_driver);

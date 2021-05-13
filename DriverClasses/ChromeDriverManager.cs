@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium.Chrome;
 
-namespace MidTransTests.DriverClasses
+namespace WebTestsPOMDemo.DriverClasses
 {
     /// <summary>
     /// ChromeDriverManager class extending the abstract WebDriverManager class

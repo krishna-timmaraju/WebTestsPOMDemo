@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace MidTransTests.DriverClasses
+namespace WebTestsPOMDemo.DriverClasses
 {
     /// <summary>
     /// Abstract WebDriveManager class to define a contract for the brower specific WebDriver classes

@@ -1,4 +1,4 @@
-using MidTransTests.DriverClasses;
+using WebTestsPOMDemo.DriverClasses;
 using Newtonsoft.Json;
 using NUnit.Framework;
 using OpenQA.Selenium;

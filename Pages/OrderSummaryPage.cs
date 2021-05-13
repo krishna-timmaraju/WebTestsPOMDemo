@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace MidTransTests.Pages
+namespace WebTestsPOMDemo.Pages
 {
     public class OrderSummaryPage
     {
@@ -23,7 +23,7 @@ namespace MidTransTests.Pages
         }
 
         //Elements
-        private By OrderSummaryFrame = By.Id("snap-midtrans");
+        private By OrderSummaryFrame = By.Id("snap");
         private By ContinueButton = By.ClassName("button-main-content");
         private By ProductName = By.XPath("//span[contains(@class,'item-name')]");
 

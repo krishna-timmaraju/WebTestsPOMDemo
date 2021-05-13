@@ -5,7 +5,7 @@ using OpenQA.Selenium.Support.UI;
 using System;
 using System.Configuration;
 
-namespace MidTransTests.Pages
+namespace WebTestsPOMDemo.Pages
 {
     public class CardDetailsPage
     {

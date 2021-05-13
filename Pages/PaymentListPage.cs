@@ -2,7 +2,7 @@
 using OpenQA.Selenium.Support.UI;
 using System;
 
-namespace MidTransTests.Pages
+namespace WebTestsPOMDemo.Pages
 {
     public class PaymentListPage
     {
@@ -19,7 +19,7 @@ namespace MidTransTests.Pages
         }
 
         //Elements
-        private By OrderSummaryFrame = By.Id("snap-midtrans");
+        private By OrderSummaryFrame = By.Id("snap");
         private By CreditCardLink = By.XPath("//a[contains(@href,'credit-card')]");
 
         //Click on Credit Card button

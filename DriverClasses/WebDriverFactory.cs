@@ -1,5 +1,5 @@
 ﻿
-namespace MidTransTests.DriverClasses
+namespace WebTestsPOMDemo.DriverClasses
 {
     /// <summary>
     /// WebDriver Factory class to get a instance of DriverManager for each browser
